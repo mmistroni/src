@@ -29,6 +29,11 @@ func NewAlarm(time string) Alarm {
 	}
 }
 
+type Drink struct {
+	Name string
+	Ice  bool
+}
+
 func CreateMovie(name string, age int) Movie {
 	m := Movie{
 		Name: name,
