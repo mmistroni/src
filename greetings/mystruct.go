@@ -1,8 +1,11 @@
 package greetings
 
+import "strconv"
+
 type Movie struct {
-	Name string
-	Age  int
+	Name   string
+	Age    int
+	Rating float64
 }
 
 type SuperHero struct {
@@ -47,4 +50,12 @@ func CreateMovie2(name string, age int) *Movie {
 	m.Name = name
 	m.Age = age
 	return m
+}
+
+func (m *Movie) summary() string {
+
+	r := strconv.FormatFloat(m.Rating, 'f', 1, 64)
+
+	return m.Name + ", " + r
+
 }

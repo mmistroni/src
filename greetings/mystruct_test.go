@@ -2,6 +2,7 @@ package greetings
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 )
 
@@ -147,13 +148,37 @@ func TestUpdateDrinks(t *testing.T ) {
 	fmt.Printf("One Ice:%v, Two Ice:%v", one.Ice, two.Ice)
 
 	three := &one
-	three.Name = "Fanta"
+	three.Name = "Coke"
 
 
-	fmt.Printf("One Name:%v, Two Name:%v, Three Name:%v", one.Name, two.Name, three.Name)
+	fmt.Printf("\nOne Name:%v, Two Name:%v, Three Name:%v", one.Name, two.Name, three.Name)
 
 
 }
+
+func TestMovieSummary(t *testing.T ) {
+
+	rating := 1.4
+
+	testMovie := Movie {
+		Name : "Titanic",
+		Age  : 1,
+		Rating: rating,
+
+	}
+
+	expected := testMovie.Name + ", " + strconv.FormatFloat(rating, 'f', 1, 64)
+
+	res := testMovie.summary()
+
+	if res != expected {
+		t.Fatalf("Comparison failed. Two items should be same. Expected:%v but was:%v", expected, res)
+	}
+}
+
+
+
+
 
 
 
