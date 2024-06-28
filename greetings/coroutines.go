@@ -117,6 +117,7 @@ func writerRunner() {
 	c := make(chan string)
 
 	go channelWriter(c)
+
 	//fmt.Println("I am not shown until slofFunc completes")
 	msg := <-c
 
@@ -135,6 +136,24 @@ func readerRunner() {
 	//fmt.Println("I am not shown until slofFunc completes")
 	time.Sleep(3)
 
+	
+}
+
+func readerWriterRunner() {
+
+	c := make(chan string)
+
+	go channelReaderAndWriter(c)
+	
+	c <- "Hello world from main"
+	
+	time.Sleep(3)
+	
+	msg := <-c
+
+	//fmt.Println("I am not shown until slofFunc completes")
+	
+	fmt.Printf("Msg from coroutine is %s", msg)	
 	
 }
 

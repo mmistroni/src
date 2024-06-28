@@ -45,3 +45,8 @@ func TestChannelReader(t *testing.T) {
 
 }
 
+func TestChannelReaderWriter(t *testing.T) {
+	readerWriterRunner()
+
+}
+
