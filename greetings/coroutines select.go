@@ -16,3 +16,19 @@ func ping2(c chan string) {
 }
 
 
+func sender(c chan string ) {
+
+	t := time.NewTicker(1 * time.Second)
+
+	for {
+	
+		c <- "I';m sending a message"
+		<-t.C
+	
+	}
+
+}
+
+
+
+
